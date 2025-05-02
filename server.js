@@ -46,6 +46,6 @@ app.post('/api/contact-info', (req, res) => {
     })
   })
 
-app.listen(port,()=>{
-    console.log(`The server is listening at http://localhost:${port}/`)    
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`The server is listening on port ${port}`)
 })
