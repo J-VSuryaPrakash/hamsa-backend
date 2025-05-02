@@ -2,6 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mysql from 'mysql2'
 import dotenv from 'dotenv'
+import cors from 'cors';
 
 dotenv.config()
 
@@ -10,6 +11,11 @@ const port = process.env.PORT || 3000
 const app = express()
 
 app.use(bodyParser.json())
+app.use(cors({
+  origin: 'https://hamsa-ten.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
